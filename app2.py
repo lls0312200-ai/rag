@@ -15,9 +15,9 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 load_dotenv(r"C:\RAG\data\.env")
 
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = Path(r"C:\RAG\data")
-PDF_PATH = "data/2024_KB_부동산_보고서_최종.pdf"
+PDF_PATH = os.path.join(BASE_DIR, "data", "2024_KB_부동산_보고서_최종.pdf")
 FAISS_DIR = BASE_DIR / "faiss_index"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 NGROK_AUTHTOKEN = os.getenv("NGROK_AUTHTOKEN")
@@ -25,7 +25,8 @@ SESSION_STORE = {}
 
 
 def validate_environment():
-    if not PDF_PATH.exists():
+    if not os.path.exists(PDF_PATH):
+        st.error(f"PDF 파일을 찾을 수 없습니다: {PDF_PATH}")
         raise FileNotFoundError(f"PDF 파일을 찾을 수 없습니다: {PDF_PATH}")
     if not OPENAI_API_KEY:
         raise ValueError("OPENAI_API_KEY가 설정되어 있지 않습니다.")
