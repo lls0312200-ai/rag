@@ -12,7 +12,6 @@ from langchain_core.runnables import RunnablePassthrough
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from pyngrok import ngrok
 
 load_dotenv(r"C:\RAG\data\.env")
 
