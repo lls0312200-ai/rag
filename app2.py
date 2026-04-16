@@ -17,7 +17,7 @@ load_dotenv(r"C:\RAG\data\.env")
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = Path(r"C:\RAG\data")
-PDF_PATH = DATA_DIR / "2024_KB_부동산_보고서_최종.pdf"
+PDF_PATH = "data/2024_KB_부동산_보고서_최종.pdf"
 FAISS_DIR = BASE_DIR / "faiss_index"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 NGROK_AUTHTOKEN = os.getenv("NGROK_AUTHTOKEN")
